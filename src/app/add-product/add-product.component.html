@@ -1,0 +1,91 @@
+<!--<div class="jumbotron">
+    <h1>Add Product</h1>
+</div>
+<form [formGroup]="addProduct" (ngsubmit)="createProduct()">
+    <div class="form-group">
+        <label>Id</label>
+        <input type="number" class="form-control" formControlName="id">
+    </div>
+    <div class="form-group">
+      <label>Price</label>
+      <input type="number" class="form-control" formControlName="price">
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name">
+    </div>
+    <div class="form-group">
+        <label>Cook Time</label>
+        <input type="number" class="form-control" formControlName="cookTime">
+    </div>
+    <div class="form-group">
+        <label>Origins</label>
+        <input type="text" class="form-control" formControlName="origins">
+    </div>
+    <div class="form-group">
+        <label>Tags</label>
+        <input type="text" class="form-control" formControlName="tags">
+    </div>
+    
+    <button type="button" class="btn btn-primary">Submit</button>
+  </form>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <h2 class="text-danger">Add Product Form</h2>
+            <form [formGroup]="addForm" (ngSubmit)="addProd()">
+                <div class="form-group">
+                    <label>Id</label>
+                    <input type="text" formControlName="id" class="form-control"
+                    [ngClass]="{'is-invalid':submitted && form['id'].errors}">
+
+                    <div *ngIf="submitted && form['id'].errors" class="invalid-feedback">
+                        <div *ngIf="form['id'].errors['required']">
+                            Id cannot be Empty
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" formControlName="name" class="form-control"
+                    [ngClass]="{'is-invalid':submitted && form['name'].errors}">
+                    <div *ngIf="submitted && form['name'].errors" class="invalid-feedback">
+                        <div *ngIf="form['name'].errors['required']">
+                            Name cannot be Empty
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text" formControlName="price" class="form-control"
+                    [ngClass]="{'is-invalid':submitted && form['price'].errors}">
+                    <div *ngIf="submitted && form['price'].errors" class="invalid-feedback">
+                        <div *ngIf="form['price'].errors['required']">
+                            Price cannot be Empty
+                        </div>
+                        <div *ngIf="form['price'].errors['price']">
+                            Enter Valid Price
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cook Time</label>
+                    <input type="text" formControlName="cookTime" class="form-control"
+                    [ngClass]="{'is-invalid':submitted && form['cookTime'].errors}">
+                    <div *ngIf="submitted && form['cookTime'].errors" class="invalid-feedback">
+                        <div *ngIf="form['cookTime'].errors['required']">
+                            Cook Time cannot be Empty
+                        </div>
+                        
+                    </div>
+                </div>
+               
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

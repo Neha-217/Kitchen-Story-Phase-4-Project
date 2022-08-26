@@ -1,0 +1,31 @@
+<div>
+  <a routerLink="/add-product">Add Product</a>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Price</th>
+        <th scope="col">Name</th>
+        <th scope="col">Cook Time</th>
+        <th scope="col">Origins</th>
+        <th scope="col">Tags</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.cookTime}}</td>
+        <td>{{product.origins}}</td>
+        <td>{{product.tags}}</td>
+        <td><a routerLink="/delete/{{product.id}}">
+          <i (click)="deleteProd(product.id)" class="fa fa-trash-o" style="font-size:30px;color:red; cursor: pointer;"></i>
+        </a></td>  
+      </tr>
+    </tbody>
+  </table>
+  
